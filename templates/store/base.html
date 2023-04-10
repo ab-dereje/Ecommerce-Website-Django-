@@ -74,7 +74,7 @@
   <header>
 <div class="bs-example">
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a href="#" class="navbar-brand">Brand</a>
+        <a href="/" class="navbar-brand">Book-Store</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -84,9 +84,9 @@
                 <a href="#" class="nav-item nav-link active">Home</a>
                 <a href="#" class="nav-item nav-link">Profile</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Categories</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Library</a>
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Inbox</a>
+                        {% comment %} <a href="#" class="dropdown-item">Inbox</a> {% endcomment %}
                         {% for c in categories %}
                         {% comment %} <a href="#" class="dropdown-item">Sent</a> {% endcomment %}
                         <li>
