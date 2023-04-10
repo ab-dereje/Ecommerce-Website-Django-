@@ -13,6 +13,61 @@
     .bs-example{
         margin: 20px;
     }
+    .detail-container {
+        box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+        .product {
+          height: 700px;
+          position: relative;
+          .color{
+            span{
+              padding-top: 6px !important;
+              margin:2px;
+              &:hover{
+                transition: all .2s linear;
+                box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+              }
+            }
+          }
+          button{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            box-shadow: 0px -5px 10px 0px rgba(0,0,0,0.2);
+          }
+        }
+        .detail{
+          background: #0a5061;
+          .desc{
+            position: relative;
+            div{
+              position: absolute;
+              right: 10%;
+              font-size: 15px;
+              color: black !important;
+            }
+          }
+         .price{
+            font-size: 25px;
+            font-weight: 600;
+          }
+          button, select{
+            height: 40px;
+            width: 100px;
+          }
+          .fa-share-square-o{
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            color: white;
+          }
+        }
+      }
+      
+      body{
+        background: -o-linear-gradient(0deg, #1ea982, #1ea982);
+        background: -webkit-linear-gradient(0deg, #1e7080, #1ea982);
+      }
 </style>
 </head>
 <body>
@@ -29,13 +84,13 @@
                 <a href="#" class="nav-item nav-link active">Home</a>
                 <a href="#" class="nav-item nav-link">Profile</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Messages</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Categories</a>
                     <div class="dropdown-menu">
                         <a href="#" class="dropdown-item">Inbox</a>
                         {% for c in categories %}
                         {% comment %} <a href="#" class="dropdown-item">Sent</a> {% endcomment %}
                         <li>
-                        <a href="#" class="dropdown-item">{{ c.name|title}}</a>
+                        <a href="{{ c.get_absolute_url }}" class="dropdown-item">{{ c.name|title}}</a>
                         </li>
                         {% endfor%}
                     </div>

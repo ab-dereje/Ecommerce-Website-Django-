@@ -1,0 +1,47 @@
+{% extends "../base.html"%}
+{% block content%}
+
+<div class="container">
+    <div class="detail-container rounded my-5 row">
+      <div class="col-md-12 ">
+        <div class="row">
+          <div class="rounded-left col-md-6 product bg-white">
+            <img class="mt-5"
+            src="http://static2.netshoes.net/Produtos/tenis-nike-md-runner-2/58/D12-1407-058/D12-1407-058_zoom1.jpg" width=100% alt="">
+               <div class="color text-center">
+                 <h5 class="mb-4">{{ product.title }}</h5>
+                 <p><span class="lead">{{ product.author }}</span> (Author)</p>
+                 <p>{{ product.description|slice:":355"}}___</p>
+               </div>
+               <button class="rounded-0 btn btn-warning">View Full Detail</button>
+          </div>
+          <div class="rounded-right col-md-6 detail bg-dange pb-5">
+            <div class="logo text-white text-center mt-5">
+              <img src="{{ product.image.url }}" alt="" width=200 class="text-white">
+            </div>
+            <h5 class="px-1 desc mt-5 text-white text-center">Lorem ipsum lorem ipsum dolores queira
+            <div class="text-muted">#74515-554</div>
+            </h5>
+            <div class="py-5 px-4">
+              Inspirado nos calçados retrô, o Tênis Nike Md Runner 2 garante um visual esportivo clássico para seu dia a dia. Possui tecnologia Phylon, espuma macia que proporciona um amortecimento leve.
+            </div>
+            <div class="text-center price">
+                <span class="text-warning">${{ product.price }}</span>
+            </div>
+            <div class="text-center mt-4">
+              <select class="btn bg-info mr-2">
+                <option value="Size">Quantity</option>
+                <option value="Size">1</option>
+                <option value="Size">2</option>
+                <option value="Size">3</option>
+              </select>
+              <button class="btn bg-warning ml-5">Add to cart</button>
+            </div>
+            <i class="fa fa-share-square-o" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
