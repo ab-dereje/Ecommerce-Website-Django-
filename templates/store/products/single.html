@@ -29,13 +29,14 @@
                 <span class="text-warning">${{ product.price }}</span>
             </div>
             <div class="text-center mt-4">
+              <label for="select">Quantity</label>
               <select class="btn bg-info mr-2">
-                <option value="Size">Quantity</option>
-                <option value="Size">1</option>
-                <option value="Size">2</option>
-                <option value="Size">3</option>
+                {% comment %} <option value="Size">Quantity</option> {% endcomment %}
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
               </select>
-              <button class="btn bg-warning ml-5">Add to cart</button>
+              <button type="button" id ="add-button" value = "{{product.id}}" class="btn bg-warning ml-5">Add to cart</button>
             </div>
             <i class="fa fa-share-square-o" aria-hidden="true"></i>
           </div>
@@ -43,5 +44,23 @@
       </div>
     </div>
   </div>
-
+<script>
+  $(document).on('click', '#add-button', function (e){
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url:'{% url "basket:basket_add"%}',
+        data:{
+          productid:$('#add-button').val(),
+          productqty:$('#select option:selected').text(),
+          csrfmiddlewaretoken: "{{csrf_token}}",
+          action: 'post'
+        },
+        success: function (json) {
+          document.getElementById("basket-qty").innerHTML = json.qty
+        },
+        error: function(xhr, errmsg,err){}
+      });
+  })
+</script>
 {% endblock %}
